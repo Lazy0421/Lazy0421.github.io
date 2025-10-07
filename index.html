@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>搞笑羊迷因網站 🐑😂</title>
+<style>
+  body {
+    background: #fff8dc;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    padding: 2rem;
+    color: #444;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  img {
+    width: 300px;
+    max-width: 90vw;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  img:hover {
+    transform: scale(1.05);
+  }
+  #jokeBtn {
+    margin-top: 1.5rem;
+    background: #ffbb33;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 5px #cc9900;
+    transition: background 0.3s ease;
+  }
+  #jokeBtn:hover {
+    background: #ffaa00;
+  }
+  #jokeText {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    color: #555;
+    min-height: 60px;
+  }
+</style>
+</head>
+<body>
+  <h1>搞笑羊迷因網站 🐑😂</h1>
+  <img id="memeImg" src="https://i.imgur.com/NMnkJxn.jpg" alt="搞笑羊" title="點擊換羊迷因" />
+  <div>
+    <button id="jokeBtn">給我羊的笑話！</button>
+  </div>
+  <div id="jokeText"></div>
+
+  <script>
+    const memes = [
+      "https://i.imgur.com/NMnkJxn.jpg", // sheep meme 1
+      "https://i.imgur.com/4vbdq9g.jpg", // sheep meme 2
+      "https://i.imgur.com/dNUpHhJ.jpg", // sheep meme 3
+    ];
+
+    const jokes = [
+      "為什麼羊不喜歡玩電腦？因為怕按錯鍵（鍵盤）！",
+      "羊說：「我不是羊，我是表情羊（羊羊）！」",
+      "羊站在山上說：「我羊氣沖天！」",
+      "為什麼羊很有自信？因為牠們都是『羊者』！",
+      "羊開派對，結果大家都『草』起來了！",
+    ];
+
+    const memeImg = document.getElementById('memeImg');
+    const jokeBtn = document.getElementById('jokeBtn');
+    const jokeText = document.getElementById('jokeText');
+
+    memeImg.addEventListener('click', () => {
+      let current = memes.indexOf(memeImg.src);
+      let nextIndex = Math.floor(Math.random() * memes.length);
+      while(nextIndex === current) {
+        nextIndex = Math.floor(Math.random() * memes.length);
+      }
+      memeImg.src = memes[nextIndex];
+    });
+
+    jokeBtn.addEventListener('click', () => {
+      const joke = jokes[Math.floor(Math.random() * jokes.length)];
+      jokeText.textContent = joke;
+    });
+  </script>
+</body>
+</html>
